@@ -12,7 +12,7 @@ name: Automatic Deploy to Server (Main)
 on:
   push:
     branches:
-      - main
+      - test #disable for now
       
 # Run only the most recent workflow and cancel current ones
 concurrency:

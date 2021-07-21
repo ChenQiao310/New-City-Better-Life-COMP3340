@@ -188,6 +188,7 @@ $city = new City(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New City Better Life | <?php echo $city->city_town . ", " . $city->province; ?></title>
     <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
 </head>
 
 <body>
@@ -269,9 +270,7 @@ $city = new City(
                         </tr>
                     </table>
                 </div>
-                <div id="city-map">
-                    GOOGLE MAP
-                </div>
+                <div id="city-map"></div>
             </div>
         </section>
 
@@ -317,6 +316,26 @@ $city = new City(
             // ---------------------------------------------------------------------------
 
             ?>
+        </script>
+
+        <script>
+            mapkit.init({
+                authorizationCallback: function(done) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", "/services/jwt");
+                    xhr.addEventListener("load", function() {
+                        done(this.responseText);
+                    });
+                    xhr.send();
+                }
+            });
+
+            var Cupertino = new mapkit.CoordinateRegion(
+                new mapkit.Coordinate(37.3316850890998, -122.030067374026),
+                new mapkit.CoordinateSpan(0.167647972, 0.354985255)
+            );
+            var map = new mapkit.Map("city-map");
+            map.region = Cupertino;
         </script>
     </footer>
 </body>
