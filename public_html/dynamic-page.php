@@ -322,8 +322,8 @@ $city = new City(
             <div id="hero-card">
                 <hgroup id="hero-card-header">
                     <div>
-                        <h1 id="hero-card-title"><?php echo $city->city_town . ", " . $city->province; ?></h1>
-                        <p id="hero-card-subtitle"><?php echo number_format($city->population, 0, ".", ","); ?> 👤</p>
+                        <h1 id="hero-card-title"><?php echo $city->get_city_town() . ", " . $city->get_province(); ?></h1>
+                        <p id="hero-card-subtitle"><?php echo number_format($city->get_population(), 0, ".", ","); ?> 👤</p>
                     </div>
                     <div>
                         <p id="hero-card-rank">
@@ -334,24 +334,24 @@ $city = new City(
                 <table id="hero-table">
                     <tr>
                         <td>Scenery</td>
-                        <td><?php echo $city->scenery_rating; ?></td>
+                        <td><?php echo $city->get_scenery_rating(); ?></td>
                     </tr>
                     <tr>
                         <td>Outdoor</td>
-                        <td><?php echo $city->outdoor_activity_rating; ?></td>
+                        <td><?php echo $city->get_outdoor_activity_rating(); ?></td>
                     </tr>
                     <tr>
                         <td>Nightlife</td>
-                        <td><?php echo $city->nightlife_rating; ?></td>
+                        <td><?php echo $city->get_nightlife_rating(); ?></td>
                     </tr>
                     <tr>
                         <td>Climate</td>
-                        <td><?php echo $city->climate_rating; ?></td>
+                        <td><?php echo $city->get_climate_rating(); ?></td>
                     </tr>
                     <tfoot>
                         <tr>
                             <td colspan="2" id="hero-table-city-summary">
-                                <?php echo $city->summary; ?>
+                                <?php echo $city->get_summary(); ?>
                             </td>
                         </tr>
                     </tfoot>
@@ -367,31 +367,31 @@ $city = new City(
                         </caption>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Livability Rank</td>
-                            <td class="table-data-vertical-value">#<?php echo $city->rank; ?></td>
+                            <td class="table-data-vertical-value">#<?php echo $city->get_rank(); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">City/Town Name</td>
-                            <td class="table-data-vertical-value"><?php echo $city->city_town; ?></td>
+                            <td class="table-data-vertical-value"><?php echo $city->get_city_town(); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">City Province</td>
-                            <td class="table-data-vertical-value"><?php echo $city->province; ?></td>
+                            <td class="table-data-vertical-value"><?php echo $city->get_province(); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Population</td>
-                            <td class="table-data-vertical-value"><?php echo number_format($city->population, 0, ".", ","); ?></td>
+                            <td class="table-data-vertical-value"><?php echo number_format($city->get_population(), 0, ".", ","); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Average Home Price (2020)</td>
-                            <td class="table-data-vertical-value"><?php echo "$" . number_format($city->avg_home_price_2020, 0, ".", ","); ?></td>
+                            <td class="table-data-vertical-value"><?php echo "$" . number_format($city->get_avg_home_price_2020(), 0, ".", ","); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Average Mortgage Payment (2020)</td>
-                            <td class="table-data-vertical-value"><?php echo "$" . number_format($city->avg_mortgage_payment_20_down, 0, ".", ","); ?></td>
+                            <td class="table-data-vertical-value"><?php echo "$" . number_format($city->get_avg_mortgage_payment_20_down(), 0, ".", ","); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Drive to Commercial Airport (minutes)</td>
-                            <td class="table-data-vertical-value"><?php echo $city->drive_to_commercial_airport_minutes; ?></td>
+                            <td class="table-data-vertical-value"><?php echo $city->get_drive_to_commercial_airport_minutes(); ?></td>
                         </tr>
                     </table>
                 </div>
@@ -415,9 +415,9 @@ $city = new City(
             // ---------------------------------------------------------------------------
             // Change the background image of the URL image using the City object
             // ---------------------------------------------------------------------------
-            $filename_id            = trim($city->rank);
-            $filename_city          = trim($city->city_town);
-            $filename_province      = trim($city->province);
+            $filename_id            = trim($city->get_rank());
+            $filename_city          = trim($city->get_city_town());
+            $filename_province      = trim($city->get_province());
             $url_filename           = strtolower('./images/city-' . $filename_id . '-' . $filename_city . '-' . $filename_province . '.jpg');
             $url_filename_cleansed  = get_clean_url_from($url_filename);
             echo "document.getElementById('hero-card').setAttribute('style', 'background-image: url($url_filename_cleansed)')";
@@ -455,7 +455,7 @@ $city = new City(
             });
 
             let city = new mapkit.CoordinateRegion(
-                new mapkit.Coordinate(<?php echo $city->latitude ?>, <?php echo $city->longitude; ?>),
+                new mapkit.Coordinate(<?php echo $city->get_latitude() ?>, <?php echo $city->get_longitude(); ?>),
                 new mapkit.CoordinateSpan(0.167647972, 0.354985255)
             );
             let map = new mapkit.Map("city-map");
