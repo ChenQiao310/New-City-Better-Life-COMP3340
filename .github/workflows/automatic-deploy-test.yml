@@ -43,7 +43,7 @@ jobs:
         MODE: mirror_full
 
     # Creates a server-only configuration file
-    - name: Test Server - SFTP Mirror (File Create)
+    - name: Test Server - SFTP Mirror (File Create - sql-config.ini)
       uses: pyxn/sftp-mirror@v2.0.0
       env:
         HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
@@ -55,3 +55,17 @@ jobs:
         MODE: mirror_file_create
         CREATE_FILE_NAME: "sql-config.ini"
         CREATE_FILE_CONTENTS: "[database]\ndatabase = 'qiao6_comp3340'\nhostname = 'localhost'\nusername = '${{ secrets.USERNAME }}'\npassword = '${{ secrets.PASSWORD }}'"
+
+    # Creates a server-only configuration file
+    - name: Test Server - SFTP Mirror (File Create - map-config.js)
+      uses: pyxn/sftp-mirror@v2.0.0
+      env:
+        HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
+        USERNAME: ${{ secrets.USERNAME_TEST }}
+        PASSWORD: ${{ secrets.PASSWORD_TEST }}
+        PATH_REMOTE: "./newcitybetterlife.com/"
+        PROTOCOL: sftp
+        PORT: 22
+        MODE: mirror_file_create
+        CREATE_FILE_NAME: "map-config.js"
+        CREATE_FILE_CONTENTS: "var mapConfiguration = { token: '${{ secrets.MAPKIT_TOKEN_TEST }}'}"

@@ -1,0 +1,3 @@
+var mapConfiguration = {
+    token: "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlI0VEY4Ujc3VDMifQ.eyJpc3MiOiI0OEwyS1JDWkg0IiwiaWF0IjoxNjI2ODk0NzM1LCJleHAiOjE2MjkzMzEyMDAsIm9yaWdpbiI6Imh0dHBzOi8vbmV3Y2l0eWJldHRlcmxpZmUuY29tIn0.DT-M7KhOXO_cbNgh5Ohs7z5h5QmDNdti3k362dXR6IkQRuOCDloxA5tvQUvivNGV3U-PqOcLprc3lTkJUKFatQ"
+}

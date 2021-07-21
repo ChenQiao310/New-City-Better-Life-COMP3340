@@ -318,15 +318,16 @@ $city = new City(
             ?>
         </script>
 
+        <?php
+        echo "<!--" . $_SERVER['SERVER_NAME'] . "-->";
+        ?>
+        <script type='text/javascript' src='../map-config.js'></script>
         <script>
+            const tokenID = mapConfiguration.token;
+
             mapkit.init({
                 authorizationCallback: function(done) {
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", "/services/jwt");
-                    xhr.addEventListener("load", function() {
-                        done(this.responseText);
-                    });
-                    xhr.send();
+                    done(tokenID);
                 }
             });
 
