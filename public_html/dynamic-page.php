@@ -1,5 +1,7 @@
 <?php
 
+echo "<!--" . $_SERVER['SERVER_NAME'] . "-->";
+echo "<!--" . $_SERVER['HTTP_HOST'] . "-->";
 /**
  * ---------------------------------------------------------------------------------
  * SQL CONNECTION CREDENTIALS
@@ -318,9 +320,6 @@ $city = new City(
             ?>
         </script>
 
-        <?php
-        echo "<!--" . $_SERVER['SERVER_NAME'] . "-->";
-        ?>
         <script type='text/javascript' src='../map-config.js'></script>
         <script>
             const tokenID = mapConfiguration.token;
