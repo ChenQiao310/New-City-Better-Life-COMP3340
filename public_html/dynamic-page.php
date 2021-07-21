@@ -45,6 +45,8 @@ final class City {
     public $climate_rating;
     public $drive_to_commercial_airport_minutes;
     public $summary;
+    public $latitude;
+    public $longitude;
     public $link;
 
     // ----------------------------------------------------------------
@@ -66,6 +68,8 @@ final class City {
         $climate_rating,
         $drive_to_commercial_airport_minutes,
         $summary,
+        $latitude,
+        $longitude,
         $link
     ) {
         $this->rank                                 = $rank;
@@ -83,6 +87,8 @@ final class City {
         $this->climate_rating                       = City::getStarsFrom($climate_rating);
         $this->drive_to_commercial_airport_minutes  = $drive_to_commercial_airport_minutes;
         $this->summary                              = $summary;
+        $this->latitude                             = $latitude;
+        $this->longitude                            = $longitude;
         $this->link                                 = $link;
     }
 
@@ -161,6 +167,8 @@ $outdoor_activity_rating             = $sql_query_result_array['outdoor_activity
 $climate_rating                      = $sql_query_result_array['climate_rating'];
 $drive_to_commercial_airport_minutes = $sql_query_result_array['drive_to_commercial_airport_minutes'];
 $summary                             = $sql_query_result_array['summary'];
+$latitude                            = $sql_query_result_array['latitude'];
+$longitude                           = $sql_query_result_array['longitude'];
 $link                                = $sql_query_result_array['link'];
 
 // ---------------------------------------------------------------
@@ -182,6 +190,8 @@ $city = new City(
     $climate_rating,
     $drive_to_commercial_airport_minutes,
     $summary,
+    $latitude,
+    $longitude,
     $link
 );
 ?>
@@ -337,7 +347,7 @@ $city = new City(
             });
 
             let city = new mapkit.CoordinateRegion(
-                new mapkit.Coordinate(48.455059, -123.496452),
+                new mapkit.Coordinate(<?php echo $city->latitude ?>, <?php echo $city->longitude; ?>),
                 new mapkit.CoordinateSpan(0.167647972, 0.354985255)
             );
             let map = new mapkit.Map("city-map");
