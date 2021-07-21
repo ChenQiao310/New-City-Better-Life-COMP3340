@@ -325,13 +325,7 @@ $city = new City(
             ?>
         </script>
 
-        <?php
-        if ($_SERVER['SERVER_NAME'] == 'newcitybetterlife.com' || $_SERVER['HTTP_HOST'] == 'newcitybetterlife.com') {
-            echo "<script type='text/javascript' src='../../map-config.js'></script>";
-        } else {
-            echo "<script type='text/javascript' src='../../map-config.js'></script>";
-        }
-        ?>
+        <script type='text/javascript' src='./scripts/map-config.js'></script>
 
         <script>
             const tokenID = mapConfiguration.token;
