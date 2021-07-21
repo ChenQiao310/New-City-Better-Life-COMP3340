@@ -102,6 +102,114 @@ final class City {
         }
         return $star_string;
     }
+
+    public function get_rank() {
+        if ($this->rank != NULL) {
+            return $this->rank;
+        }
+    }
+
+    public function get_city_town() {
+        if ($this->city_town != NULL) {
+            return $this->city_town;
+        }
+    }
+
+    public function get_province() {
+        if ($this->province != NULL) {
+            return $this->province;
+        }
+    }
+
+    public function get_population() {
+        if ($this->population != NULL) {
+            return $this->population;
+        }
+    }
+
+    public function get_avg_home_price_2020() {
+        if ($this->avg_home_price_2020 != NULL) {
+            return $this->avg_home_price_2020;
+        }
+    }
+
+    public function get_avg_mortgage_payment_20_down() {
+        if ($this->avg_mortgage_payment_20_down != NULL) {
+            return $this->avg_mortgage_payment_20_down;
+        }
+    }
+
+    public function get_min_income_required_20_down() {
+        if ($this->min_income_required_20_down != NULL) {
+            return $this->min_income_required_20_down;
+        }
+    }
+
+    public function get_proximity_to_large_water_body() {
+        if ($this->proximity_to_large_water_body != NULL) {
+            return $this->proximity_to_large_water_body;
+        }
+    }
+
+    public function get_proximity_to_mountains() {
+        if ($this->proximity_to_mountains != NULL) {
+            return $this->proximity_to_mountains;
+        }
+    }
+
+    public function get_scenery_rating() {
+        if ($this->scenery_rating != NULL) {
+            return $this->scenery_rating;
+        }
+    }
+
+    public function get_nightlife_rating() {
+        if ($this->nightlife_rating != NULL) {
+            return $this->nightlife_rating;
+        }
+    }
+
+    public function get_outdoor_activity_rating() {
+        if ($this->outdoor_activity_rating != NULL) {
+            return $this->outdoor_activity_rating;
+        }
+    }
+
+    public function get_climate_rating() {
+        if ($this->climate_rating != NULL) {
+            return $this->climate_rating;
+        }
+    }
+
+    public function get_drive_to_commercial_airport_minutes() {
+        if ($this->drive_to_commercial_airport_minutes != NULL) {
+            return $this->drive_to_commercial_airport_minutes;
+        }
+    }
+
+    public function get_summary() {
+        if ($this->summary != NULL) {
+            return $this->summary;
+        }
+    }
+
+    public function get_latitude() {
+        if ($this->latitude != NULL) {
+            return $this->latitude;
+        }
+    }
+
+    public function get_longitude() {
+        if ($this->longitude != NULL) {
+            return $this->longitude;
+        }
+    }
+
+    public function get_link() {
+        if ($this->link != NULL) {
+            return $this->link;
+        }
+    }
 }
 
 /**
