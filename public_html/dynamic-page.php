@@ -336,12 +336,12 @@ $city = new City(
                 }
             });
 
-            var Cupertino = new mapkit.CoordinateRegion(
-                new mapkit.Coordinate(37.3316850890998, -122.030067374026),
+            let city = new mapkit.CoordinateRegion(
+                new mapkit.Coordinate(48.455059, -123.496452),
                 new mapkit.CoordinateSpan(0.167647972, 0.354985255)
             );
-            var map = new mapkit.Map("city-map");
-            map.region = Cupertino;
+            let map = new mapkit.Map("city-map");
+            map.region = city;
         </script>
     </footer>
 </body>
