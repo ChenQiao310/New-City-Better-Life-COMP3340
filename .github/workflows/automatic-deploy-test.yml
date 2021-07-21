@@ -36,7 +36,7 @@ jobs:
         USERNAME: ${{ secrets.USERNAME_TEST }}
         PASSWORD: ${{ secrets.PASSWORD_TEST }}
         PATH_LOCAL: "./public_html/"
-        PATH_REMOTE: "./newcitybetterlife.com/public_html/project/"
+        PATH_REMOTE: "./newcitybetterlife.com/public_html/"
         PROTOCOL: sftp
         PORT: 22
         ARGS: --verbose --only-newer --overwrite --delete 
