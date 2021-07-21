@@ -12,7 +12,7 @@ name: Automatic Deploy to Server (Main)
 on:
   push:
     branches:
-      - test #disable for now
+      - main
       
 # Run only the most recent workflow and cancel current ones
 concurrency:
@@ -55,3 +55,17 @@ jobs:
         MODE: mirror_file_create
         CREATE_FILE_NAME: "sql-config.ini"
         CREATE_FILE_CONTENTS: "[database]\ndatabase = 'qiao6_comp3340'\nhostname = 'localhost'\nusername = '${{ secrets.USERNAME }}'\npassword = '${{ secrets.PASSWORD }}'"
+
+    # Creates a server-only configuration file
+    - name: Test Server - SFTP Mirror (File Create - map-config.js)
+      uses: pyxn/sftp-mirror@v2.0.0
+      env:
+        HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
+        USERNAME: ${{ secrets.USERNAME_MAIN }}
+        PASSWORD: ${{ secrets.PASSWORD_MAIN }}
+        PATH_REMOTE: "./public_html/project/scripts/"
+        PROTOCOL: sftp
+        PORT: 22
+        MODE: mirror_file_create
+        CREATE_FILE_NAME: "map-config.js"
+        CREATE_FILE_CONTENTS: "var mapConfiguration = { token: '${{ secrets.MAPKIT_TOKEN_MAIN }}'}"
